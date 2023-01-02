@@ -1,0 +1,16 @@
+{
+  "Prueba": [
+    {
+      "name": "usuarios",
+      "dataExample": {
+        "name": "Pablo",
+        "email": "prueba@gmail.com",
+        "direccion": "Direccion"
+      }
+    }
+  ],
+  "keys": [
+    "name",
+    "dataExample"
+  ]
+}

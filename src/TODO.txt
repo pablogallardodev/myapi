@@ -1,0 +1,12 @@
+BACK:
+- Metodos para bases de datos: Obtener (con url)
+- (opcional): evitar la eliminación de archivo, se limpiaran automaticamente cada 3er día
+- Crear un endpoint con metadata de los métodos por base de datos y sus URL
+- Validar que los nombres de archivo no se repitan
+
+FRONT:
+- Generar imagen para header de home
+- Logo para página
+- Formulario de creación de BD
+- Listado de bases de datos con sus url para consumir
+- Apartado de ejemplos sobre una BD

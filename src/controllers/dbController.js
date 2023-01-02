@@ -20,6 +20,32 @@ const createDatabase = (req, res) => {
   }
 }
 
+const getAllDatabase = (req, res) => {
+  const limit = req.params.limit // TODO: considerar el limite a mostrar opcional
+
+  try {
+    const files = fs.readdirSync(path.join(__dirname, `../database`))
+      .map(db => {
+        const obj = {}
+        const name = db.split('.')[0]
+        obj.name = name
+        obj.url = `http://localhost:3000/api/${name}/`
+
+        return obj
+      })
+
+    if (files.length > 0) {
+      res.status(200).send({ status: "OK", data: { dataBases: files } })
+    } else {
+      res.status(200).send({ status: "OK", data: { message: 'No hay bases de datos disponibles.' } })
+    }
+  } catch (error) {
+    res.status(400).send({ status: 'FAILED', data: { error: error.message.split(',')[0] } })
+  }
+
+}
+
 module.exports = {
-  createDatabase
+  createDatabase,
+  getAllDatabase
 }

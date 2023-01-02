@@ -1,6 +1,6 @@
-const form = document.getElementById("createDb")
-const name = document.getElementById("name")
-const example = document.getElementById("example")
+const $ = selector => document.getElementById(selector)
+
+const form = $("createDb")
 
 const isJSON = (json) => {
   try {
@@ -13,23 +13,29 @@ const isJSON = (json) => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
+  const name = $("name")
+  const example = $("example")
 
   if (isJSON(example.value)) {
-    console.log("Es JSON");
     const data = { name: name.value, dataExample: JSON.parse(example.value) }
-    console.log(data);
+
+    if (!data.name || !data.dataExample) {
+      alert("Por favor, completa el formulario, no debén existir campos vacíos...")
+    } else {
+      fetch('api/db/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+        })
+    }
   } else {
     console.log("No es JSON");
   }
 
-  // fetch('api/db/', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(data)
-  // })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log(data)
-  //   })
+
 
 })

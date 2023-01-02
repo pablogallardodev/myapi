@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,11 +13,45 @@
     <nav>
       <h2>My API</h2>
       <div>
-        <a href="/" class="nav-button">Home</a>
+        <a href="#home" class="nav-button">Home</a>
         <a href="#apis" class="nav-button">API´s</a>
       </div>
     </nav>
+
+    <div id="home">
+      <div class="home-left">
+        <h1>Crea un API de manera facíl, y utilizala en tus proyectos.</h1>
+        <p>¿Necesitas un API?, aquí podrás crear un API en base a un objeto JSON, el cuál determina la data (propiedades), de tal forma que podrás acceder a los métodos básicos del CRUD y algúnos mas que son listados mas adelante.</p>
+        <a href="#new-api" class="start-button">Comenzar</a>
+      </div>
+      <div class="home-rigth">
+        <img src="https://via.placeholder.com/400" alt="">
+      </div>
+    </div>
+
+    <div id="new-api">
+      <form id="createDb">
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" id="name" placeholder="Usuarios" required>
+        <label for="example">Ejemplo:</label>
+        <textarea name="example" id="example" rows="9" required>
+{
+  "name": "usuarios",
+  "dataExample": {
+    "name": "Pablo",
+    "email": "prueba@gmail.com",
+    "direccion": "Direccion"
+  }
+}
+        </textarea>
+        <button type="submit" class="nav-button">Crear base de datos</button>
+      </form>
+    </div>
+
   </div>
+  <footer style="background-color: #22c55e;">
+    <a href="http://" target="_blank" rel="noopener noreferrer">Email</a>
+  </footer>
   <script src="./home.js"></script>
 </body>
 </html>

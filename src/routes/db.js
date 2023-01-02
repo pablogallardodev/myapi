@@ -1,8 +1,12 @@
 const express = require('express')
-const { createDatabase } = require('../controllers/dbController')
+const {
+  createDatabase,
+  getAllDatabase
+} = require('../controllers/dbController')
 const router = express.Router()
 
 router
   .post('/', createDatabase)
+  .get('/all/:limit?', getAllDatabase)
 
 module.exports = router
